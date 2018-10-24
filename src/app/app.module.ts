@@ -20,10 +20,18 @@ import { AddNewQuestionComponent } from './add-new-question/add-new-question.com
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { FormsModule } from '@angular/forms';
+import { AddNewQuestionSecureComponent } from './add-new-question-secure/add-new-question-secure.component';
 
 @NgModule({
-  declarations: [AppComponent, MyNavComponent, AddNewQuestionComponent],
+  declarations: [
+    AppComponent,
+    MyNavComponent,
+    AddNewQuestionComponent,
+    AddNewQuestionSecureComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule
