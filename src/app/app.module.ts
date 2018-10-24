@@ -11,13 +11,16 @@ import {
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
 import { AddNewQuestionComponent } from './add-new-question/add-new-question.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, MyNavComponent, AddNewQuestionComponent],
@@ -32,7 +35,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MatIconModule,
     MatListModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
