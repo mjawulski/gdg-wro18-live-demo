@@ -5,6 +5,7 @@ import {
 } from '@angular/fire/firestore';
 import { Question } from './question.model';
 import { Answer } from './answer.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-new-question',
@@ -14,13 +15,15 @@ import { Answer } from './answer.model';
 export class AddNewQuestionComponent implements OnInit {
   private questionsCollection: AngularFirestoreCollection<Question>;
 
+  questions: Observable<Question[]>;
+
   questionToAdd: Question;
 
   constructor(private afs: AngularFirestore) {}
 
   ngOnInit() {
     this.questionsCollection = this.afs.collection<Question>('questions');
-
+    this.questions = this.questionsCollection.valueChanges();
     this.questionToAdd = new Question();
   }
 
